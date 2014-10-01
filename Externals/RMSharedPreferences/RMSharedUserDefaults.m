@@ -26,7 +26,6 @@
 #import "RMCoalescingOperation.h"
 #import "RMPlistEncoding.h"
 
-#import "NSURL+RMApplicationGroup.h"
 #import "NSObject+RMSubclassSupport.h"
 
 NSString * const RMSharedUserDefaultsDidChangeDefaultNameKey = @"RMSharedUserDefaultsDidChangeDefaultNameKey";
@@ -74,21 +73,26 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 
 - (id)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier
 {
-	self = [super initWithUser:nil];
+	self = [super initWithSuiteName:nil];
 	if (self == nil) {
 		return nil;
 	}
 	
-	NSURL *applicationGroupLocation = [NSURL containerURLForSecurityApplicationGroupIdentifier:applicationGroupIdentifier];
+    if (applicationGroupIdentifier == nil) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"An application group identifier is required" userInfo:nil];
+        return nil;
+    }
+    
+	NSURL *applicationGroupLocation = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:applicationGroupIdentifier];
 	if (applicationGroupLocation == nil) {
-		@throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"A default application group identifier cannot be found in the entitlements" userInfo:nil];
+		@throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Could not get container URL for application group" userInfo:nil];
 		return nil;
 	}
 	
 	NSURL *applicationGroupPreferencesLocation = [applicationGroupLocation URLByAppendingPathComponent:@"Preferences"];
 	[[NSFileManager defaultManager] createDirectoryAtURL:applicationGroupPreferencesLocation withIntermediateDirectories:YES attributes:nil error:NULL];
 	
-	NSString *userDefaultsDictionaryFileName = applicationGroupIdentifier ? : [NSURL defaultGroupContainerIdentifier];
+	NSString *userDefaultsDictionaryFileName = applicationGroupIdentifier;
 	_userDefaultsDictionaryLocation = [[applicationGroupPreferencesLocation URLByAppendingPathComponent:userDefaultsDictionaryFileName] URLByAppendingPathExtension:@"plist"];
 	
 	_updatedUserDefaultsDictionary = [NSMutableDictionary dictionary];
@@ -216,7 +220,12 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 		RMCoalescingOperation *lastSynchronizationOperation = [self lastSynchronizationOperation];
 		
 		void (^synchronizationBlock)(void) = ^ {
-			[self _synchronizeWithNotifyingQueue:[NSOperationQueue mainQueue]];
+            [[NSProcessInfo processInfo] performActivityWithOptions:NSActivitySuddenTerminationDisabled|NSActivityAutomaticTerminationDisabled
+                                                             reason:@"Writing preferences"
+                                                         usingBlock:^{
+                                                             [self _synchronizeWithNotifyingQueue:[NSOperationQueue mainQueue]];
+                                                            }];
+			
 		};
 		if (lastSynchronizationOperation != nil && [lastSynchronizationOperation replaceBlock:synchronizationBlock]) {
 			return;
@@ -231,13 +240,6 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 		
 		[[self synchronizationQueue] addOperation:synchronizationOperation];
 		
-		[[NSProcessInfo processInfo] disableSuddenTermination];
-		
-		NSOperation *enabledSuddenTermination = [NSBlockOperation blockOperationWithBlock:^ {
-			[[NSProcessInfo processInfo] enableSuddenTermination];
-		}];
-		[enabledSuddenTermination addDependency:synchronizationOperation];
-		[[[NSOperationQueue alloc] init] addOperation:enabledSuddenTermination];
 	}];
 }
 
