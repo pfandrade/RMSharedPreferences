@@ -25,8 +25,6 @@
 
 @interface RMSharedUserDefaults : NSUserDefaults
 
-+ (RMSharedUserDefaults *)standardUserDefaults;
-
 /*!
 	\brief
 	Designated initializer.

@@ -52,25 +52,6 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 
 @implementation RMSharedUserDefaults
 
-+ (RMSharedUserDefaults *)standardUserDefaults
-{
-	static RMSharedUserDefaults *_standardUserDefaults = nil;
-	static dispatch_once_t onceToken = 0;
-	dispatch_once(&onceToken, ^ {
-		_standardUserDefaults = [[self alloc] initWithApplicationGroupIdentifier:nil];
-	});
-	return _standardUserDefaults;
-}
-
-+ (void)resetStandardUserDefaults
-{
-	RMSharedUserDefaults *userDefaults = [self standardUserDefaults];
-	[userDefaults synchronize];
-	[[userDefaults userDefaultsDictionary] enumerateKeysAndObjectsUsingBlock:^ (NSString *defaultName, id value, BOOL *stop) {
-		[userDefaults removeObjectForKey:defaultName];
-	}];
-}
-
 - (id)initWithApplicationGroupIdentifier:(NSString *)applicationGroupIdentifier
 {
 	self = [super initWithSuiteName:nil];

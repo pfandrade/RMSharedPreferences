@@ -26,6 +26,7 @@
 #import <ServiceManagement/ServiceManagement.h>
 
 #import "RMSharedPreferences/RMSharedPreferences.h"
+#import "RMSharedPreferencesUserDefaults.h"
 
 #import "SharedPreferences-Constants.h"
 
@@ -35,7 +36,7 @@ static NSString * const RMSharedPreferencesHelperBundleIdentifier = @"com.realma
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-	NSUserDefaultsController *userDefaultsController = [[NSUserDefaultsController alloc] initWithDefaults:[RMSharedUserDefaults standardUserDefaults] initialValues:nil];
+	NSUserDefaultsController *userDefaultsController = [[NSUserDefaultsController alloc] initWithDefaults:[RMSharedPreferencesUserDefaults standardUserDefaults] initialValues:nil];
 	[self setUserDefaultsController:userDefaultsController];
 }
 
@@ -61,7 +62,7 @@ static NSString * const RMSharedPreferencesHelperBundleIdentifier = @"com.realma
 
 - (IBAction)saveText:(id)sender
 {
-	[[RMSharedUserDefaults standardUserDefaults] setObject:[[self textField] stringValue] forKey:RMSharedPreferencesSomeTextDefaultKey];
+	[[RMSharedPreferencesUserDefaults standardUserDefaults] setObject:[[self textField] stringValue] forKey:RMSharedPreferencesSomeTextDefaultKey];
 }
 
 @end

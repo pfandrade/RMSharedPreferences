@@ -11,8 +11,6 @@
 		6D3B5F201663771500BE3CB8 /* RMSharedPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B5F1E1663771500BE3CB8 /* RMSharedPreferences.m */; };
 		6D3B5F231663776F00BE3CB8 /* SharedPreferences-Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3B5F211663776F00BE3CB8 /* SharedPreferences-Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D3B5F241663776F00BE3CB8 /* SharedPreferences-Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B5F221663776F00BE3CB8 /* SharedPreferences-Constants.m */; };
-		6D3B5F27166377C300BE3CB8 /* NSURL+RMApplicationGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3B5F25166377C300BE3CB8 /* NSURL+RMApplicationGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6D3B5F28166377C300BE3CB8 /* NSURL+RMApplicationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B5F26166377C300BE3CB8 /* NSURL+RMApplicationGroup.m */; };
 		6D3B5F2A166377EA00BE3CB8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D3B5F29166377EA00BE3CB8 /* Security.framework */; };
 		6D3B5F2E166378B600BE3CB8 /* NSObject+RMSubclassSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3B5F2C166378B600BE3CB8 /* NSObject+RMSubclassSupport.h */; };
 		6D3B5F2F166378B600BE3CB8 /* NSObject+RMSubclassSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B5F2D166378B600BE3CB8 /* NSObject+RMSubclassSupport.m */; };
@@ -31,8 +29,6 @@
 		6D3B5F1E1663771500BE3CB8 /* RMSharedPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSharedPreferences.m; sourceTree = SOURCE_ROOT; };
 		6D3B5F211663776F00BE3CB8 /* SharedPreferences-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SharedPreferences-Constants.h"; sourceTree = SOURCE_ROOT; };
 		6D3B5F221663776F00BE3CB8 /* SharedPreferences-Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SharedPreferences-Constants.m"; sourceTree = SOURCE_ROOT; };
-		6D3B5F25166377C300BE3CB8 /* NSURL+RMApplicationGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+RMApplicationGroup.h"; sourceTree = SOURCE_ROOT; };
-		6D3B5F26166377C300BE3CB8 /* NSURL+RMApplicationGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+RMApplicationGroup.m"; sourceTree = SOURCE_ROOT; };
 		6D3B5F29166377EA00BE3CB8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6D3B5F2C166378B600BE3CB8 /* NSObject+RMSubclassSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RMSubclassSupport.h"; sourceTree = SOURCE_ROOT; };
 		6D3B5F2D166378B600BE3CB8 /* NSObject+RMSubclassSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RMSubclassSupport.m"; sourceTree = SOURCE_ROOT; };
@@ -67,8 +63,6 @@
 		6D3B5F2B1663788200BE3CB8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				6D3B5F25166377C300BE3CB8 /* NSURL+RMApplicationGroup.h */,
-				6D3B5F26166377C300BE3CB8 /* NSURL+RMApplicationGroup.m */,
 				6D3B5F2C166378B600BE3CB8 /* NSObject+RMSubclassSupport.h */,
 				6D3B5F2D166378B600BE3CB8 /* NSObject+RMSubclassSupport.m */,
 			);
@@ -167,7 +161,6 @@
 				6D74A07D1663747100D70B8F /* RMSharedUserDefaults.h in Headers */,
 				6D3B5F1F1663771500BE3CB8 /* RMSharedPreferences.h in Headers */,
 				6D3B5F231663776F00BE3CB8 /* SharedPreferences-Constants.h in Headers */,
-				6D3B5F27166377C300BE3CB8 /* NSURL+RMApplicationGroup.h in Headers */,
 				6D3B5F2E166378B600BE3CB8 /* NSObject+RMSubclassSupport.h in Headers */,
 				6D5026AB166665C800321B02 /* RMCoalescingOperation.h in Headers */,
 				6D5028441667BB0500321B02 /* RMPlistEncoding.h in Headers */,
@@ -206,7 +199,7 @@
 			};
 			buildConfigurationList = 6D74A055166373B400D70B8F /* Build configuration list for PBXProject "RMSharedPreferences" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = en-GB;
+			developmentRegion = "en-GB";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -241,7 +234,6 @@
 				6D74A07E1663747100D70B8F /* RMSharedUserDefaults.m in Sources */,
 				6D3B5F201663771500BE3CB8 /* RMSharedPreferences.m in Sources */,
 				6D3B5F241663776F00BE3CB8 /* SharedPreferences-Constants.m in Sources */,
-				6D3B5F28166377C300BE3CB8 /* NSURL+RMApplicationGroup.m in Sources */,
 				6D3B5F2F166378B600BE3CB8 /* NSObject+RMSubclassSupport.m in Sources */,
 				6D5026AC166665C800321B02 /* RMCoalescingOperation.m in Sources */,
 				6D5028451667BB0500321B02 /* RMPlistEncoding.m in Sources */,

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27C51A8A1A27868500C77DF3 /* RMSharedPreferencesUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C51A891A27868500C77DF3 /* RMSharedPreferencesUserDefaults.m */; };
+		27C51A8B1A2787CB00C77DF3 /* RMSharedPreferencesUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C51A891A27868500C77DF3 /* RMSharedPreferencesUserDefaults.m */; };
 		6D5029311667CBEE00321B02 /* SharedPreferences-Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5029301667CBEE00321B02 /* SharedPreferences-Constants.m */; };
 		6D5029321667CBEE00321B02 /* SharedPreferences-Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5029301667CBEE00321B02 /* SharedPreferences-Constants.m */; };
 		6DE2E07F165EC72400DE9405 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE2E07E165EC72400DE9405 /* Cocoa.framework */; };
@@ -25,7 +27,7 @@
 		6DE69E87166E5C9000415303 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6DE69E85166E5C9000415303 /* Credits.rtf */; };
 		6DE69EF8166F676B00415303 /* RMSharedPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE69EF6166F676500415303 /* RMSharedPreferences.framework */; };
 		6DE69EF9166F677200415303 /* RMSharedPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE69EF6166F676500415303 /* RMSharedPreferences.framework */; };
-		6DE69EFE166F678F00415303 /* RMSharedPreferences.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE69EF6166F676500415303 /* RMSharedPreferences.framework */; };
+		6DE69EFE166F678F00415303 /* RMSharedPreferences.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE69EF6166F676500415303 /* RMSharedPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		27C51A881A27868500C77DF3 /* RMSharedPreferencesUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSharedPreferencesUserDefaults.h; sourceTree = "<group>"; };
+		27C51A891A27868500C77DF3 /* RMSharedPreferencesUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSharedPreferencesUserDefaults.m; sourceTree = "<group>"; };
 		6D50292F1667CBEE00321B02 /* SharedPreferences-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SharedPreferences-Constants.h"; sourceTree = "<group>"; };
 		6D5029301667CBEE00321B02 /* SharedPreferences-Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SharedPreferences-Constants.m"; sourceTree = "<group>"; };
 		6DE2E07A165EC72400DE9405 /* Main.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Main.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +151,8 @@
 		6DE2E06F165EC72400DE9405 = {
 			isa = PBXGroup;
 			children = (
+				27C51A881A27868500C77DF3 /* RMSharedPreferencesUserDefaults.h */,
+				27C51A891A27868500C77DF3 /* RMSharedPreferencesUserDefaults.m */,
 				6D50292F1667CBEE00321B02 /* SharedPreferences-Constants.h */,
 				6D5029301667CBEE00321B02 /* SharedPreferences-Constants.m */,
 				6DE2E084165EC72400DE9405 /* Main */,
@@ -356,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5029311667CBEE00321B02 /* SharedPreferences-Constants.m in Sources */,
+				27C51A8A1A27868500C77DF3 /* RMSharedPreferencesUserDefaults.m in Sources */,
 				6DE69E78166E5C2700415303 /* RMMainAppDelegate.m in Sources */,
 				6DE69E81166E5C5C00415303 /* main.m in Sources */,
 			);
@@ -366,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DE2E0A9165EC73D00DE9405 /* main.m in Sources */,
+				27C51A8B1A2787CB00C77DF3 /* RMSharedPreferencesUserDefaults.m in Sources */,
 				6DE2E0B0165EC73D00DE9405 /* RMHelperAppDelegate.m in Sources */,
 				6D5029321667CBEE00321B02 /* SharedPreferences-Constants.m in Sources */,
 			);

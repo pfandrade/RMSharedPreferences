@@ -24,16 +24,16 @@
 #import "RMHelperAppDelegate.h"
 
 #import "RMSharedPreferences/RMSharedPreferences.h"
-
+#import "RMSharedPreferencesUserDefaults.h"
 #import "SharedPreferences-Constants.h"
 
 @implementation RMHelperAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferencesDidUpdate:) name:NSUserDefaultsDidChangeNotification object:[RMSharedUserDefaults standardUserDefaults]];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferencesDidUpdate:) name:NSUserDefaultsDidChangeNotification object:[RMSharedPreferencesUserDefaults standardUserDefaults]];
 	
-	[self _updateTextField:[[RMSharedUserDefaults standardUserDefaults] stringForKey:RMSharedPreferencesSomeTextDefaultKey]];
+	[self _updateTextField:[[RMSharedPreferencesUserDefaults standardUserDefaults] stringForKey:RMSharedPreferencesSomeTextDefaultKey]];
 	
 	[[self textField] setTarget:self];
 	[[self textField] setAction:@selector(saveText:)];
@@ -51,7 +51,7 @@
 
 - (IBAction)saveText:(id)sender
 {
-	[[RMSharedUserDefaults standardUserDefaults] setObject:[[self textField] stringValue] forKey:RMSharedPreferencesSomeTextDefaultKey];
+	[[RMSharedPreferencesUserDefaults standardUserDefaults] setObject:[[self textField] stringValue] forKey:RMSharedPreferencesSomeTextDefaultKey];
 }
 
 - (void)_updateTextField:(NSString *)text
