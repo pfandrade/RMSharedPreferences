@@ -469,12 +469,12 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 
 - (NSArray *)volatileDomainNames
 {
-	return nil;
+	return @[];
 }
 
 - (NSDictionary *)volatileDomainForName:(NSString *)domainName
 {
-	return nil;
+    return @{};
 }
 
 - (void)setVolatileDomain:(NSDictionary *)domain forName:(NSString *)domainName
@@ -489,7 +489,7 @@ NSString * const RMSharedUserDefaultsDidChangeDefaulValueKey = @"RMSharedUserDef
 
 - (NSArray *)persistentDomainNames
 {
-	return nil;
+	return @[];
 }
 
 - (NSDictionary *)persistentDomainForName:(NSString *)domainName
